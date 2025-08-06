@@ -1,6 +1,6 @@
 package workshop.account.entity;
 
-public class Account {
+public class Account extends Object {
 	private String custId;
 	private String acctId;
 	private int balance;
