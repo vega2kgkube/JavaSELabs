@@ -8,6 +8,10 @@ public class Account {
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
+	
+	public int getBalance() {
+		return balance;
+	}
 
 	public String getCustId() {
 		return custId;
@@ -17,5 +21,12 @@ public class Account {
 		this.custId = custId;
 	}
 	
+	public void setAcctId(String acctId) {
+		this.acctId = acctId;
+	}
 	
+	public String getAcctId() {
+		return acctId;
+	}
+		
 }
