@@ -5,9 +5,9 @@ public class Account {
 	private String acctId;
 	private int balance;
 	
-	public void setBalance(int balance) {
-		this.balance = balance;
-	}
+//	public void setBalance(int balance) {
+//		this.balance = balance;
+//	}
 	
 	public int getBalance() {
 		return balance;
