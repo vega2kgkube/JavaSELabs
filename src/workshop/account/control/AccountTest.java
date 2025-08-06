@@ -8,9 +8,10 @@ public class AccountTest {
 		//Account 객체생성
 		Account account = new Account();
 		
-		//고객번호 : "A1100", 계좌번호 : “221-22-3477”, 잔액 : 100000
+		//고객번호 : "A1100", 계좌번호 : "221-22-3477", 잔액 : 100
 		account.setCustId("A1100");
 		account.setAcctId("221-22-3477");
+		
 		
 		
 	}
