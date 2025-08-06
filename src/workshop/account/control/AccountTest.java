@@ -32,6 +32,11 @@ public class AccountTest {
 		System.out.println("10000원 출금");
 		account2.withdraw(10000);
 		System.out.println("잔액 = "    + account2.getBalance());
+		
+		System.out.println("5000원 출금");
+		account2.withdraw(5000);
+		System.out.println("잔액 = "    + account2.getBalance());
+
 	}
 
 }
