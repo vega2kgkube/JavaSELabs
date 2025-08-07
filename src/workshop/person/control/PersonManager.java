@@ -14,6 +14,10 @@ public class PersonManager {
 		//persons 변수는 PersonEntity[] 타입이고, persons[0]은 PersonEntity 타입이다.
 		personMgr.fillPersons(persons);
 		
+		personMgr.showPerson(persons);
+	}
+
+	public void showPerson(PersonEntity[] persons) {
 		//for loop를 순회하면서 
 		for(PersonEntity person:persons) {
 			System.out.println(person.getName() + " " + person.getGender());
