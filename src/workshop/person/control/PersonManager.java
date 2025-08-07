@@ -9,7 +9,6 @@ public class PersonManager {
 	public static void main(String[] args) {		
 		PersonManager personMgr = new PersonManager();
 		
-		personMgr.printTitle("인물정보 조회시스템");
 		
 		//배열선언 및 초기화
 		PersonEntity[] persons = new PersonEntity[10];
@@ -20,12 +19,15 @@ public class PersonManager {
 		Scanner scanner = new Scanner(System.in);
 		String inputValue = scanner.next();
 		char gender = inputValue.charAt(0); //String => char
-		scanner.close();
 		
+		personMgr.printTitle("인물정보 조회시스템");
 		personMgr.showPerson(persons);		
 		
 		String message = String.format("성별 : %s (은)는   %d 명 입니다.", gender, personMgr.findByGender(persons, gender));
 		System.out.println(message);
+		
+		scanner.close();
+
 	}
 	
 	public int findByGender(PersonEntity[] persons, char gender ) {
