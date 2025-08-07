@@ -1,10 +1,12 @@
 package workshop.person.control;
 
+import java.util.Scanner;
+
 import workshop.person.entity.PersonEntity;
 
 public class PersonManager {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
 		PersonManager personMgr = new PersonManager();
 		
 		personMgr.printTitle("인물정보 조회시스템");
@@ -16,7 +18,12 @@ public class PersonManager {
 		
 		personMgr.showPerson(persons);
 		
-		char gender = '여';
+		//Scanner 객체생성
+		Scanner scanner = new Scanner(System.in);
+		String inputValue = scanner.next();
+		char gender = inputValue.charAt(0); //String => char
+		scanner.close();
+		
 		String message = String.format("성별 : %s (은)는   %d 명 입니다.", gender, personMgr.findByGender(persons, gender));
 		System.out.println(message);
 	}
