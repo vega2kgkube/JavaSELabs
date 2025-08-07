@@ -2,8 +2,9 @@ package workshop.oop.flexible;
 /* 관리자 클래스 */
 public class Manager extends Employee {
     public Manager (String name, double salary) {
-        this.name = name;
-        this.salary = salary;
+//        this.name = name;
+//        this.salary = salary;
+    	super(name,salary);
     }
     
     public void manageSalary(double rate) {
