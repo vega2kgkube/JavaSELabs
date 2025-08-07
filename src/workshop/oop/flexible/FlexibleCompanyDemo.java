@@ -22,7 +22,6 @@ public class FlexibleCompanyDemo {
         Manager itMgr2 = (Manager)itMgr;
         System.out.println(itMgr2.getDept());        
         
-        System.out.println("현재 월급입니다.");
         
         //Heterogeneous Collection  Employee 타입의 배열의 선언하기
         //emps 변수는 Employee[] 타입 ,  emps[0]는 Employee 타입
@@ -33,7 +32,9 @@ public class FlexibleCompanyDemo {
         emps[3] = new Manager("둘리",200,"HR");
         
         for(Employee emp: emps) {        	
+            System.out.println("현재 월급입니다.");
         	System.out.println(emp.getName() + "의 현재 월급은 " + emp.getSalary() + " 만원 입니다.");
+        	//emp.manageSalary(10);
         }
         
         System.out.println("");
