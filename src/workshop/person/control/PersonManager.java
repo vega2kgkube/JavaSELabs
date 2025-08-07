@@ -16,14 +16,13 @@ public class PersonManager {
 		System.out.println("==> 이름을 입력하세요!");
 		String name = scanner.next();
 		
-		System.out.println(String.format("성별은 %s, 이름은 %s", gender, name) + "\n");
+		System.out.println(String.format("==> 입력하신 성별은 %s, 이름은 %s", gender, name) + "\n");
 		
 		PersonManager personMgr = new PersonManager();
 		//배열선언 및 초기화
 		PersonEntity[] persons = new PersonEntity[10];
 		//persons 변수는 PersonEntity[] 타입이고, persons[0]은 PersonEntity 타입이다.
-		personMgr.fillPersons(persons);
-		
+		personMgr.fillPersons(persons);		
 		
 		personMgr.printTitle("인물정보 조회시스템");
 		personMgr.showPerson(persons);		
@@ -31,8 +30,14 @@ public class PersonManager {
 		String message = String.format("성별 : %s (은)는   %d 명 입니다.", gender, personMgr.findByGender(persons, gender));
 		System.out.println(message);
 		
+		personMgr.showPerson(persons, name);
+		
 		scanner.close();
 
+	}
+	
+	public void showPerson(PersonEntity[] persons, String name) {
+		
 	}
 	
 	public int findByGender(PersonEntity[] persons, char gender ) {
