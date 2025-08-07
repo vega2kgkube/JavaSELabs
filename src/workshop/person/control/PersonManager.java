@@ -6,19 +6,22 @@ import workshop.person.entity.PersonEntity;
 
 public class PersonManager {
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
+		//Scanner 객체생성
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("==> 성별을 입력하세요!");
+		String inputValue = scanner.next();
+		char gender = inputValue.charAt(0); //String => char
+		
+		System.out.println("==> 이름을 입력하세요!");
+		String name = scanner.next();
+		
 		PersonManager personMgr = new PersonManager();
-		
-		
 		//배열선언 및 초기화
 		PersonEntity[] persons = new PersonEntity[10];
 		//persons 변수는 PersonEntity[] 타입이고, persons[0]은 PersonEntity 타입이다.
 		personMgr.fillPersons(persons);
 		
-		//Scanner 객체생성
-		Scanner scanner = new Scanner(System.in);
-		String inputValue = scanner.next();
-		char gender = inputValue.charAt(0); //String => char
 		
 		personMgr.printTitle("인물정보 조회시스템");
 		personMgr.showPerson(persons);		
