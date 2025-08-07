@@ -16,6 +16,12 @@ public class PersonManager {
 		
 		personMgr.showPerson(persons);
 	}
+	
+	public int findByGender(PersonEntity[] persons, char gender ) {
+		int genderCnt = 0;
+		
+		return genderCnt;
+	}
 
 	public void showPerson(PersonEntity[] persons) {
 		//for loop를 순회하면서 
@@ -39,6 +45,7 @@ public class PersonManager {
 	
 	public void printTitle(String title) {
 		System.out.println("@@@@ " + title + " @@@@");
+		System.out.println();
 	}
 
 }
