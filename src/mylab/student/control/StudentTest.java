@@ -6,11 +6,11 @@ import mylab.student.exception.InvalidGradeException;
 public class StudentTest {
     public static void main(String[] args) {
     	
-        try {
-			Student s = new Student("2023001", "ê¹€ë¯¼ìˆ˜", "ì»´í“¨í„°ê³µí•™", 3);
-			System.out.println(s.getName() + " / " + s.getMajor() + " / " + s.getGrade() + "í•™ë…„" );
-			System.out.println("5í•™ë…„ìœ¼ë¡œ ë³€ê²½ ");
-			s.setGrade(5); // ì˜¤ë¥˜ ì¶œë ¥
+    	try {
+			Student s = new Student("2023001", "±è¹Î¼ö", "ÄÄÇ»ÅÍ°øÇÐ", 3);
+			System.out.println(s.getName() + " / " + s.getMajor() + " / " + s.getGrade() + "ÇÐ³â" );
+			System.out.println("5ÇÐ³âÀ¸·Î º¯°æ ");
+			s.setGrade(5); // ¿À·ù Ãâ·Â
 		} catch (InvalidGradeException e) {
 			System.out.println(e.getMessage());			
 		}

@@ -24,7 +24,7 @@ public class Student {
         if (grade >= 1 && grade <= 4) {
             this.grade = grade;
         } else {
-            throw new InvalidGradeException("학년은 1~4 사이여야 합니다.");
+        	throw new InvalidGradeException("학년은 1~4 사이여야 합니다.");
         }
     }
 }
