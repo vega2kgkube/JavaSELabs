@@ -15,6 +15,10 @@ public class PersonManager {
 		personMgr.fillPersons(persons);
 		
 		personMgr.showPerson(persons);
+		
+		char gender = '여';
+		String message = String.format("성별 : %s (은)는   %d 명 입니다.", gender, personMgr.findByGender(persons, gender));
+		System.out.println(message);
 	}
 	
 	public int findByGender(PersonEntity[] persons, char gender ) {
