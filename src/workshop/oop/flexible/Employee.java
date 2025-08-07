@@ -21,7 +21,7 @@ public abstract class Employee extends Object {
 		this.salary = salary;
 	}
 
-
+	//Concrete Method
 	public String getName() {
 	    return this.name;
 	}
@@ -30,5 +30,6 @@ public abstract class Employee extends Object {
 	    return this.salary;
 	}
 
+	//Abstract Method
 	public abstract void manageSalary(double rate);
 }
