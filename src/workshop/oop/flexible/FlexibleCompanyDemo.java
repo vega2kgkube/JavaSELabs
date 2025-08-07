@@ -46,8 +46,11 @@ public class FlexibleCompanyDemo {
 
 	public static void printEmployInfo(Employee[] emps) {
 		for(Employee emp: emps) { 
-			//((Manager)emp).getDept();
-			System.out.print("관리자 부서명 = " + ((Manager)emp).getDept());
+			//emp가 Manager객체로 부터 만들어진 instance 인지를 체크하는 연산자
+			if(emp instanceof Manager) {
+				//((Manager)emp).getDept();
+				System.out.print("관리자 부서명 = " + ((Manager)emp).getDept() + " ");
+			}
         	System.out.println(emp.getName() + "의 현재 월급은 " + emp.getSalary() + " 만원 입니다.");        	
         }
 	}
