@@ -16,13 +16,13 @@ public class PersonManager {
 		//persons 변수는 PersonEntity[] 타입이고, persons[0]은 PersonEntity 타입이다.
 		personMgr.fillPersons(persons);
 		
-		personMgr.showPerson(persons);
-		
 		//Scanner 객체생성
 		Scanner scanner = new Scanner(System.in);
 		String inputValue = scanner.next();
 		char gender = inputValue.charAt(0); //String => char
 		scanner.close();
+		
+		personMgr.showPerson(persons);		
 		
 		String message = String.format("성별 : %s (은)는   %d 명 입니다.", gender, personMgr.findByGender(persons, gender));
 		System.out.println(message);
