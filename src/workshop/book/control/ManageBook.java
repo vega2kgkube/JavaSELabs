@@ -17,7 +17,7 @@ public class ManageBook {
 		pubs[4] = new ReferenceBook("실용주의프로그래머","2007-01-14",496,25000,"소프트웨어공학");	
 
 		for(Publication pub : pubs) {
-			System.out.println(pub.toString());
+			System.out.println(pub);  //pub.toString()
 		}
 	}
 

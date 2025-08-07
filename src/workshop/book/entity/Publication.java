@@ -50,4 +50,7 @@ public class Publication {
 		this.price = price;
 	}
 	
+	public String toString() {
+		return this.title;
+	}
 }
