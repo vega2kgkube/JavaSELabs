@@ -32,19 +32,21 @@ public class FlexibleCompanyDemo {
         emps[3] = new Manager("둘리",200,"HR");
         
         System.out.println("현재 월급입니다.");
-        for(Employee emp: emps) {        	
-        	System.out.println(emp.getName() + "의 현재 월급은 " + emp.getSalary() + " 만원 입니다.");        	
-        }
+        printEmployInfo(emps);
         
         for(Employee emp: emps) {
         	emp.manageSalary(10);
         }
         
        System.out.println("올린 후의 월급입니다.");
-       for(Employee emp: emps) {
-           System.out.println(emp.getName() + "의 현재 월급은 " + emp.getSalary() + " 만원 입니다.");
-       }
+       printEmployInfo(emps);
                         
    }
+
+	public static void printEmployInfo(Employee[] emps) {
+		for(Employee emp: emps) {        	
+        	System.out.println(emp.getName() + "의 현재 월급은 " + emp.getSalary() + " 만원 입니다.");        	
+        }
+	}
 }
 
