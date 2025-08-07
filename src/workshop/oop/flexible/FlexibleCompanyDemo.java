@@ -33,7 +33,10 @@ public class FlexibleCompanyDemo {
         
         System.out.println("현재 월급입니다.");
         for(Employee emp: emps) {        	
-        	System.out.println(emp.getName() + "의 현재 월급은 " + emp.getSalary() + " 만원 입니다.");
+        	System.out.println(emp.getName() + "의 현재 월급은 " + emp.getSalary() + " 만원 입니다.");        	
+        }
+        
+        for(Employee emp: emps) {
         	emp.manageSalary(10);
         }
         
