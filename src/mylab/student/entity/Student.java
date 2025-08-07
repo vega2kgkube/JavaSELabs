@@ -8,7 +8,8 @@ public class Student {
     private String major;
     private int grade;
 
-    public Student(String studentId, String name, String major, int grade) throws InvalidGradeException{
+    public Student(String studentId, String name, String major, int grade) 
+    		throws InvalidGradeException{
         this.studentId = studentId;
         this.name = name;
         this.major = major;
