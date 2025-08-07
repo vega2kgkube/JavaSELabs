@@ -20,7 +20,7 @@ public class PersonManager {
 	public void showPerson(PersonEntity[] persons) {
 		//for loop를 순회하면서 
 		for(PersonEntity person:persons) {
-			System.out.println(person.getName() + " " + person.getGender());
+			System.out.println("[이름 ] " + person.getName() + "\t [성별] " + person.getGender() + "\t [전화번호] " + person.getPhone());
 		}
 	}
 
