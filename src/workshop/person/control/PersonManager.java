@@ -16,6 +16,8 @@ public class PersonManager {
 		System.out.println("==> 이름을 입력하세요!");
 		String name = scanner.next();
 		
+		System.out.println(String.format("성별은 %s, 이름은 %s", gender, name) + "\n");
+		
 		PersonManager personMgr = new PersonManager();
 		//배열선언 및 초기화
 		PersonEntity[] persons = new PersonEntity[10];
