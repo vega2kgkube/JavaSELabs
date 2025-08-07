@@ -9,8 +9,16 @@ public class FlexibleCompanyDemo {
         
         // 자식 mgr = new 자식
         Manager hrMgr = new Manager("둘리",200,"HR");
-        Employee itMgr = new Manager("길동",250,"IT");
+        System.out.println(hrMgr.getName());
+        System.out.println(hrMgr.getSalary());
+        System.out.println(hrMgr.getDept());
         
+        //다형성(Polymorphism) Poly(다양한) + Morphism(변신,변형)
+        Employee itMgr = new Manager("길동",250,"IT");
+        System.out.println(itMgr.getName());
+        System.out.println(itMgr.getSalary());
+        //Manager(자식)가 가진 getDept() 메서드 호출하기
+        Manager itMgr2 = (Manager)itMgr;
         
         
         System.out.println("현재 월급입니다.");
