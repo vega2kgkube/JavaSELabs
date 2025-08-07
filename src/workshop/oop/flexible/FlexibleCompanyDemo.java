@@ -20,7 +20,8 @@ public class FlexibleCompanyDemo {
         
         //Manager(자식)가 가진 getDept() 메서드 호출하기
         Manager itMgr2 = (Manager)itMgr;
-        System.out.println(itMgr2.getDept());        
+        System.out.println(itMgr2.getDept()); 
+        //((Manager)itMgr).getDept();
         
         
         //Heterogeneous Collection  Employee 타입의 배열의 선언하기
@@ -44,7 +45,9 @@ public class FlexibleCompanyDemo {
    }
 
 	public static void printEmployInfo(Employee[] emps) {
-		for(Employee emp: emps) {        	
+		for(Employee emp: emps) { 
+			//((Manager)emp).getDept();
+			System.out.print("관리자 부서명 = " + ((Manager)emp).getDept());
         	System.out.println(emp.getName() + "의 현재 월급은 " + emp.getSalary() + " 만원 입니다.");        	
         }
 	}
