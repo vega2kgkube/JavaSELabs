@@ -14,7 +14,6 @@ public class Employee extends Object {
 	}
 
 
-
 	public String getName() {
 	    return this.name;
 	}
