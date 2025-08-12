@@ -2,7 +2,7 @@ package mylab.bank.entity;
 
 import mylab.bank.exception.InsufficientBalanceException;
 
-// Account.java - ê¸°ë³¸ ê³„ì¢Œ í´ë˜ìŠ¤
+// Account.java - ±âº» °èÁÂ Å¬·¡½º
 public class Account {
     private String accountNumber;
     private String ownerName;
@@ -28,25 +28,25 @@ public class Account {
     
     public void deposit(double amount) {
         if (amount <= 0) {
-            throw new IllegalArgumentException("ì…ê¸ˆì•¡ì€ ì–‘ìˆ˜ì—¬ì•¼ í•©ë‹ˆë‹¤.");
+            throw new IllegalArgumentException("ÀÔ±İ¾×Àº ¾ç¼ö¿©¾ß ÇÕ´Ï´Ù.");
         }
         balance += amount;
-        System.out.println(amount + "ì›ì´ ì…ê¸ˆë˜ì—ˆìŠµë‹ˆë‹¤. í˜„ì¬ ì”ì•¡: " + balance + "ì›");
+        System.out.println(amount + "¿øÀÌ ÀÔ±İµÇ¾ú½À´Ï´Ù. ÇöÀç ÀÜ¾×: " + balance + "¿ø");
     }
     
     public void withdraw(double amount) throws InsufficientBalanceException {
         if (amount <= 0) {
-            throw new IllegalArgumentException("ì¶œê¸ˆì•¡ì€ ì–‘ìˆ˜ì—¬ì•¼ í•©ë‹ˆë‹¤.");
+            throw new IllegalArgumentException("Ãâ±İ¾×Àº ¾ç¼ö¿©¾ß ÇÕ´Ï´Ù.");
         }
         if (amount > balance) {
-            throw new InsufficientBalanceException("ì”ì•¡ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.");
+            throw new InsufficientBalanceException("ÀÜ¾×ÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
         }
         balance -= amount;
-        System.out.println(amount + "ì›ì´ ì¶œê¸ˆë˜ì—ˆìŠµë‹ˆë‹¤. í˜„ì¬ ì”ì•¡: " + balance + "ì›");
+        System.out.println(amount + "¿øÀÌ Ãâ±İµÇ¾ú½À´Ï´Ù. ÇöÀç ÀÜ¾×: " + balance + "¿ø");
     }
     
     @Override
     public String toString() {
-        return "ê³„ì¢Œë²ˆí˜¸: " + accountNumber + ", ì†Œìœ ì: " + ownerName + ", ì”ì•¡: " + balance + "ì›";
+        return "°èÁÂ¹øÈ£: " + accountNumber + ", ¼ÒÀ¯ÀÚ: " + ownerName + ", ÀÜ¾×: " + balance + "¿ø";
     }
 }

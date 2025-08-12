@@ -18,13 +18,13 @@ public class CheckingAccount extends Account {
     @Override
     public void withdraw(double amount) throws InsufficientBalanceException {
         if (amount > withdrawalLimit) {
-            throw new WithdrawalLimitExceededException("ì¶œê¸ˆ í•œë„ë¥¼ ì´ˆê³¼í–ˆìŠµë‹ˆë‹¤. í•œë„: " + withdrawalLimit + "ì›");
+            throw new WithdrawalLimitExceededException("Ãâ±İ ÇÑµµ¸¦ ÃÊ°úÇß½À´Ï´Ù. ÇÑµµ: " + withdrawalLimit + "¿ø");
         }
         super.withdraw(amount);
     }
     
     @Override
     public String toString() {
-        return super.toString() + ", ì¶œê¸ˆ í•œë„: " + withdrawalLimit + "ì›";
+        return super.toString() + ", Ãâ±İ ÇÑµµ: " + withdrawalLimit + "¿ø";
     }
 }

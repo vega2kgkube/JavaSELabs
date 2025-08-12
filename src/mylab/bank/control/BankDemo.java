@@ -6,62 +6,62 @@ import mylab.bank.exception.AccountNotFoundException;
 import mylab.bank.exception.InsufficientBalanceException;
 import mylab.bank.exception.WithdrawalLimitExceededException;
 
-// BankDemo.java - í…ŒìŠ¤íŠ¸ í´ë˜ìŠ¤
+// BankDemo.java - Å×½ºÆ® Å¬·¡½º
 public class BankDemo {
     public static void main(String[] args) {
         Bank bank = new Bank();
         
         try {
-            // ê³„ì¢Œ ìƒì„±
-        	System.out.println("=== ê³„ì¢Œ ìƒì„± ===");
-            String savingsAccount1 = bank.createSavingsAccount("í™ê¸¸ë™", 10000, 0.03);
-            String checkingAccount1 = bank.createCheckingAccount("ê¹€ì² ìˆ˜", 20000, 5000);
-            String savingsAccount2 = bank.createSavingsAccount("ì´ì˜í¬", 30000, 0.02);
+            // °èÁÂ »ı¼º
+        	System.out.println("=== °èÁÂ »ı¼º ===");
+            String savingsAccount1 = bank.createSavingsAccount("È«±æµ¿", 10000, 0.03);
+            String checkingAccount1 = bank.createCheckingAccount("±èÃ¶¼ö", 20000, 5000);
+            String savingsAccount2 = bank.createSavingsAccount("ÀÌ¿µÈñ", 30000, 0.02);
             
             System.out.println();
             bank.printAllAccounts();
             System.out.println();
             
-            // ì…ê¸ˆ/ì¶œê¸ˆ í…ŒìŠ¤íŠ¸
-            System.out.println("=== ì…ê¸ˆ/ì¶œê¸ˆ í…ŒìŠ¤íŠ¸ ===");
+            // ÀÔ±İ/Ãâ±İ Å×½ºÆ®
+            System.out.println("=== ÀÔ±İ/Ãâ±İ Å×½ºÆ® ===");
             bank.deposit(savingsAccount1, 5000);
             bank.withdraw(checkingAccount1, 3000);
             System.out.println();
             
-            // ì´ì ì ìš© í…ŒìŠ¤íŠ¸
-            System.out.println("=== ì´ì ì ìš© í…ŒìŠ¤íŠ¸ ===");
+            // ÀÌÀÚ Àû¿ë Å×½ºÆ®
+            System.out.println("=== ÀÌÀÚ Àû¿ë Å×½ºÆ® ===");
             ((SavingsAccount)bank.findAccount(savingsAccount1)).applyInterest();
             
             System.out.println();
             
-            // ê³„ì¢Œ ì´ì²´ í…ŒìŠ¤íŠ¸
-            System.out.println("=== ê³„ì¢Œ ì´ì²´ í…ŒìŠ¤íŠ¸ ===");
+            // °èÁÂ ÀÌÃ¼ Å×½ºÆ®
+            System.out.println("=== °èÁÂ ÀÌÃ¼ Å×½ºÆ® ===");
             bank.transfer(savingsAccount2, checkingAccount1, 5000);
             
             System.out.println();
             bank.printAllAccounts();
             
-            // ì˜ˆì™¸ í…ŒìŠ¤íŠ¸
+            // ¿¹¿Ü Å×½ºÆ®
             try {
-                bank.withdraw(checkingAccount1, 50000); // ì”ì•¡ ë¶€ì¡±
+                bank.withdraw(checkingAccount1, 50000); // ÀÜ¾× ºÎÁ·
             } catch (InsufficientBalanceException e) {
-                System.out.println("ì˜ˆì™¸ ë°œìƒ: " + e.getMessage());
+                System.out.println("¿¹¿Ü ¹ß»ı: " + e.getMessage());
             }
             
             try {
-                bank.withdraw(checkingAccount1, 10000); // ì¶œê¸ˆ í•œë„ ì´ˆê³¼
+                bank.withdraw(checkingAccount1, 10000); // Ãâ±İ ÇÑµµ ÃÊ°ú
             } catch (WithdrawalLimitExceededException e) {
-                System.out.println("ì˜ˆì™¸ ë°œìƒ: " + e.getMessage());
+                System.out.println("¿¹¿Ü ¹ß»ı: " + e.getMessage());
             }
             
             try {
-                bank.findAccount("AC9999"); // ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ê³„ì¢Œ
+                bank.findAccount("AC9999"); // Á¸ÀçÇÏÁö ¾Ê´Â °èÁÂ
             } catch (AccountNotFoundException e) {
-                System.out.println("ì˜ˆì™¸ ë°œìƒ: " + e.getMessage());
+                System.out.println("¿¹¿Ü ¹ß»ı: " + e.getMessage());
             }
             
         } catch (Exception e) {
-            System.out.println("ì˜¤ë¥˜ ë°œìƒ: " + e.getMessage());
+            System.out.println("¿À·ù ¹ß»ı: " + e.getMessage());
             e.printStackTrace();
         }
     }

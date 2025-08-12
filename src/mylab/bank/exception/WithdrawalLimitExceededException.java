@@ -1,6 +1,6 @@
 package mylab.bank.exception;
 
-// WithdrawalLimitExceededException.java - ì¶œê¸ˆ í•œë„ ì´ˆê³¼ ì˜ˆì™¸
+// WithdrawalLimitExceededException.java - Ãâ±İ ÇÑµµ ÃÊ°ú ¿¹¿Ü
 public class WithdrawalLimitExceededException extends InsufficientBalanceException {
     public WithdrawalLimitExceededException(String message) {
         super(message);

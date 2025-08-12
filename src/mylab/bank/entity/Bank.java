@@ -1,4 +1,5 @@
 package mylab.bank.entity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,14 +12,14 @@ public class Bank {
     
     public Bank() {
         accounts = new ArrayList<>();
-        nextAccountNumber = 1000; // ì‹œì‘ ê³„ì¢Œë²ˆí˜¸
+        nextAccountNumber = 1000; // ½ÃÀÛ °èÁÂ¹øÈ£
     }
     
     public String createSavingsAccount(String ownerName, double initialBalance, double interestRate) {
         String accountNumber = generateAccountNumber();
         SavingsAccount account = new SavingsAccount(accountNumber, ownerName, initialBalance, interestRate);
         accounts.add(account);
-        System.out.println("Saving(ì €ì¶•) ê³„ì¢Œê°€ ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤: " + account);
+        System.out.println("Saving(ÀúÃà) °èÁÂ°¡ »ı¼ºµÇ¾ú½À´Ï´Ù: " + account);
         return accountNumber;
     }
     
@@ -26,7 +27,7 @@ public class Bank {
         String accountNumber = generateAccountNumber();
         CheckingAccount account = new CheckingAccount(accountNumber, ownerName, initialBalance, withdrawalLimit);
         accounts.add(account);
-        System.out.println("Checking(ì²´í‚¹) ê³„ì¢Œê°€ ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤: " + account);
+        System.out.println("Checking(Ã¼Å·) °èÁÂ°¡ »ı¼ºµÇ¾ú½À´Ï´Ù: " + account);
         return accountNumber;
     }
     
@@ -40,7 +41,7 @@ public class Bank {
                 return account;
             }
         }
-        throw new AccountNotFoundException("ê³„ì¢Œë²ˆí˜¸ " + accountNumber + "ì— í•´ë‹¹í•˜ëŠ” ê³„ì¢Œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+        throw new AccountNotFoundException("°èÁÂ¹øÈ£ " + accountNumber + "¿¡ ÇØ´çÇÏ´Â °èÁÂ¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
     }
     
     public void deposit(String accountNumber, double amount) throws AccountNotFoundException {
@@ -56,22 +57,22 @@ public class Bank {
     public void transfer(String fromAccountNumber, String toAccountNumber, double amount) 
             throws AccountNotFoundException, InsufficientBalanceException {
         if (fromAccountNumber.equals(toAccountNumber)) {
-            throw new IllegalArgumentException("ì†¡ê¸ˆ ê³„ì¢Œì™€ ìˆ˜ì‹  ê³„ì¢Œê°€ ë™ì¼í•©ë‹ˆë‹¤.");
+            throw new IllegalArgumentException("¼Û±İ °èÁÂ¿Í ¼ö½Å °èÁÂ°¡ µ¿ÀÏÇÕ´Ï´Ù.");
         }
         
         Account fromAccount = findAccount(fromAccountNumber);
         Account toAccount = findAccount(toAccountNumber);
         
-        // ì¶œê¸ˆ
+        // Ãâ±İ
         fromAccount.withdraw(amount);
-        // ì…ê¸ˆ
+        // ÀÔ±İ
         toAccount.deposit(amount);
         
-        System.out.println(amount + "ì›ì´ " + fromAccountNumber + "ì—ì„œ " + toAccountNumber + "ë¡œ ì†¡ê¸ˆë˜ì—ˆìŠµë‹ˆë‹¤.");
+        System.out.println(amount + "¿øÀÌ " + fromAccountNumber + "¿¡¼­ " + toAccountNumber + "·Î ¼Û±İµÇ¾ú½À´Ï´Ù.");
     }
     
     public void printAllAccounts() {
-        System.out.println("=== ëª¨ë“  ê³„ì¢Œ ëª©ë¡ ===");
+        System.out.println("=== ¸ğµç °èÁÂ ¸ñ·Ï ===");
         for (Account account : accounts) {
             System.out.println(account);
         }
