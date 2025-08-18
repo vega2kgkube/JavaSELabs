@@ -3,11 +3,11 @@ package mylab.book.entity;
 public class Magazine extends Publication {
     private String publishPeriod;
     
-    // ê¸°ë³¸ ìƒì„±ì
+    // ±âº» »ı¼ºÀÚ
     public Magazine() {
     }
     
-    // ëª¨ë“  ë©¤ë²„ë³€ìˆ˜ë¥¼ ì¸ìë¡œ ê°–ëŠ” ìƒì„±ì
+    // ¸ğµç ¸â¹öº¯¼ö¸¦ ÀÎÀÚ·Î °®´Â »ı¼ºÀÚ
     public Magazine(String title, String publishDate, int page, int price, String publishPeriod) {
         super(title, publishDate, page, price);
         this.publishPeriod = publishPeriod;
@@ -22,10 +22,10 @@ public class Magazine extends Publication {
         this.publishPeriod = publishPeriod;
     }
     
-    // toString ë©”ì„œë“œ ì˜¤ë²„ë¼ì´ë“œ
+    // toString ¸Ş¼­µå ¿À¹ö¶óÀÌµå
     @Override
     public String toString() {
-        return super.toString() + " [ì¡ì§€] ë°œí–‰ì£¼ê¸°:" + publishPeriod + 
-               ", " + getPage() + "ìª½, " + getPrice() + "ì›, ì¶œíŒì¼:" + getPublishDate();
+        return super.toString() + " [ÀâÁö] ¹ßÇàÁÖ±â:" + publishPeriod + 
+               ", " + getPage() + "ÂÊ, " + getPrice() + "¿ø, ÃâÆÇÀÏ:" + getPublishDate();
     }
 }

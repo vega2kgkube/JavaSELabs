@@ -6,11 +6,11 @@ public class Publication {
     private int page;
     private int price;
     
-    // ê¸°ë³¸ ìƒì„±ì
+    // ±âº» »ı¼ºÀÚ
     public Publication() {
     }
     
-    // ëª¨ë“  ë©¤ë²„ë³€ìˆ˜ë¥¼ ì¸ìë¡œ ê°–ëŠ” ìƒì„±ì
+    // ¸ğµç ¸â¹öº¯¼ö¸¦ ÀÎÀÚ·Î °®´Â »ı¼ºÀÚ
     public Publication(String title, String publishDate, int page, int price) {
         this.title = title;
         this.publishDate = publishDate;
@@ -51,7 +51,7 @@ public class Publication {
         this.price = price;
     }
     
-    // toString ë©”ì„œë“œ ì˜¤ë²„ë¼ì´ë“œ - titleë§Œ ë°˜í™˜
+    // toString ¸Ş¼­µå ¿À¹ö¶óÀÌµå - title¸¸ ¹İÈ¯
     @Override
     public String toString() {
         return title;

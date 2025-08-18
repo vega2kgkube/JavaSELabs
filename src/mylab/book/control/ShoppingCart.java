@@ -15,42 +15,42 @@ public class ShoppingCart {
         items = new ArrayList<>();
     }
     
-    // ì¥ë°”êµ¬ë‹ˆì— ë¬¼í’ˆ ì¶”ê°€
+    // Àå¹Ù±¸´Ï¿¡ ¹°Ç° Ãß°¡
     public void addItem(Publication item) {
         items.add(item);
-        System.out.println(item.getTitle() + "ì´(ê°€) ì¥ë°”êµ¬ë‹ˆì— ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.");
+        System.out.println(item.getTitle() + "ÀÌ(°¡) Àå¹Ù±¸´Ï¿¡ Ãß°¡µÇ¾ú½À´Ï´Ù.");
     }
     
-    // ì¥ë°”êµ¬ë‹ˆì—ì„œ ë¬¼í’ˆ ì œê±°
+    // Àå¹Ù±¸´Ï¿¡¼­ ¹°Ç° Á¦°Å
     public boolean removeItem(String title) {
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i).getTitle().equals(title)) {
                 Publication removed = items.remove(i);
-                System.out.println(removed.getTitle() + "ì´(ê°€) ì¥ë°”êµ¬ë‹ˆì—ì„œ ì œê±°ë˜ì—ˆìŠµë‹ˆë‹¤.");
+                System.out.println(removed.getTitle() + "ÀÌ(°¡) Àå¹Ù±¸´Ï¿¡¼­ Á¦°ÅµÇ¾ú½À´Ï´Ù.");
                 return true;
             }
         }
-        System.out.println("í•´ë‹¹ ì œëª©ì˜ ì¶œíŒë¬¼ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+        System.out.println("ÇØ´ç Á¦¸ñÀÇ ÃâÆÇ¹°À» Ã£À» ¼ö ¾ø½À´Ï´Ù.");
         return false;
     }
     
-    // ì¥ë°”êµ¬ë‹ˆ ë‚´ìš© ì¶œë ¥
+    // Àå¹Ù±¸´Ï ³»¿ë Ãâ·Â
     public void displayCart() {
         if (items.isEmpty()) {
-            System.out.println("ì¥ë°”êµ¬ë‹ˆê°€ ë¹„ì–´ìˆìŠµë‹ˆë‹¤.");
+            System.out.println("Àå¹Ù±¸´Ï°¡ ºñ¾îÀÖ½À´Ï´Ù.");
             return;
         }
         
-        System.out.println("====== ì¥ë°”êµ¬ë‹ˆ ë‚´ìš© ======");
+        System.out.println("====== Àå¹Ù±¸´Ï ³»¿ë ======");
         for (int i = 0; i < items.size(); i++) {
             Publication item = items.get(i);
-            System.out.printf("%d. %s - %,dì›\n", i+1, item.getTitle(), item.getPrice());
+            System.out.printf("%d. %s - %,d¿ø\n", i+1, item.getTitle(), item.getPrice());
         }
-        System.out.printf("ì´ ê°€ê²©: %,dì›\n", calculateTotalPrice());
-        System.out.println("í• ì¸ ì ìš© ê°€ê²©: " + calculateDiscountedPrice() + "ì›");
+        System.out.printf("ÃÑ °¡°İ: %,d¿ø\n", calculateTotalPrice());
+        System.out.println("ÇÒÀÎ Àû¿ë °¡°İ: " + calculateDiscountedPrice() + "¿ø");
     }
     
-    // ì´ ê°€ê²© ê³„ì‚°
+    // ÃÑ °¡°İ °è»ê
     public int calculateTotalPrice() {
         int total = 0;
         for (Publication item : items) {
@@ -59,25 +59,25 @@ public class ShoppingCart {
         return total;
     }
     
-    // í• ì¸ì´ ì ìš©ëœ ê°€ê²© ê³„ì‚° (ë‹¤í˜•ì„± í™œìš©)
+    // ÇÒÀÎÀÌ Àû¿ëµÈ °¡°İ °è»ê (´ÙÇü¼º È°¿ë)
     public int calculateDiscountedPrice() {
         int total = 0;
         for (Publication item : items) {
-            // ì¶œíŒë¬¼ íƒ€ì…ì— ë”°ë¼ ë‹¤ë¥¸ í• ì¸ìœ¨ ì ìš©
+            // ÃâÆÇ¹° Å¸ÀÔ¿¡ µû¶ó ´Ù¸¥ ÇÒÀÎÀ² Àû¿ë
             if (item instanceof Magazine) {
-                total += item.getPrice() * 0.9; // ì¡ì§€ëŠ” 10% í• ì¸
+                total += item.getPrice() * 0.9; // ÀâÁö´Â 10% ÇÒÀÎ
             } else if (item instanceof Novel) {
-                total += item.getPrice() * 0.85; // ì†Œì„¤ì€ 15% í• ì¸
+                total += item.getPrice() * 0.85; // ¼Ò¼³Àº 15% ÇÒÀÎ
             } else if (item instanceof ReferenceBook) {
-                total += item.getPrice() * 0.8; // ì°¸ê³ ì„œëŠ” 20% í• ì¸
+                total += item.getPrice() * 0.8; // Âü°í¼­´Â 20% ÇÒÀÎ
             } else {
-                total += item.getPrice(); // ê¸°ë³¸ ì¶œíŒë¬¼ì€ í• ì¸ ì—†ìŒ
+                total += item.getPrice(); // ±âº» ÃâÆÇ¹°Àº ÇÒÀÎ ¾øÀ½
             }
         }
         return total;
     }
     
-    // ì¶œíŒë¬¼ íƒ€ì…ë³„ í†µê³„ ì¶œë ¥
+    // ÃâÆÇ¹° Å¸ÀÔº° Åë°è Ãâ·Â
     public void printStatistics() {
         int magazineCount = 0;
         int novelCount = 0;
@@ -93,33 +93,33 @@ public class ShoppingCart {
             }
         }
         
-        System.out.println("====== ì¥ë°”êµ¬ë‹ˆ í†µê³„ ======");
-        System.out.println("ì¡ì§€: " + magazineCount + "ê¶Œ");
-        System.out.println("ì†Œì„¤: " + novelCount + "ê¶Œ");
-        System.out.println("ì°¸ê³ ì„œ: " + referenceBookCount + "ê¶Œ");
-        System.out.println("ì´ ì¶œíŒë¬¼: " + items.size() + "ê¶Œ");
+        System.out.println("====== Àå¹Ù±¸´Ï Åë°è ======");
+        System.out.println("ÀâÁö: " + magazineCount + "±Ç");
+        System.out.println("¼Ò¼³: " + novelCount + "±Ç");
+        System.out.println("Âü°í¼­: " + referenceBookCount + "±Ç");
+        System.out.println("ÃÑ ÃâÆÇ¹°: " + items.size() + "±Ç");
     }
     
     public static void main(String[] args) {
         ShoppingCart cart = new ShoppingCart();
         
-        // ì¥ë°”êµ¬ë‹ˆì— ë‹¤ì–‘í•œ ì¶œíŒë¬¼ ì¶”ê°€
-        cart.addItem(new Magazine("ë§ˆì´í¬ë¡œì†Œí”„íŠ¸", "2007-10-01", 328, 9900, "ë§¤ì›”"));
-        cart.addItem(new Magazine("ê²½ì˜ê³¼ì»´í“¨í„°", "2007-10-03", 316, 9000, "ë§¤ì›”"));
-        cart.addItem(new Novel("ë¹ ì‚ìš©", "2007-07-01", 396, 9800, "ë² ë¥´ë‚˜ë¥´ë² ë¥´ë² ë¥´", "í˜„ëŒ€ì†Œì„¤"));
-        cart.addItem(new Novel("ë‚¨í•œì‚°ì„±", "2007-04-14", 383, 11000, "ê¹€í›ˆ", "ëŒ€í•˜ì†Œì„¤"));
-        cart.addItem(new ReferenceBook("ì‹¤ìš©ì£¼ì˜í”„ë¡œê·¸ë˜ë¨¸", "2007-01-14", 496, 25000, "ì†Œí”„íŠ¸ì›¨ì–´ê³µí•™"));
+        // Àå¹Ù±¸´Ï¿¡ ´Ù¾çÇÑ ÃâÆÇ¹° Ãß°¡
+        cart.addItem(new Magazine("¸¶ÀÌÅ©·Î¼ÒÇÁÆ®", "2007-10-01", 328, 9900, "¸Å¿ù"));
+        cart.addItem(new Magazine("°æ¿µ°úÄÄÇ»ÅÍ", "2007-10-03", 316, 9000, "¸Å¿ù"));
+        cart.addItem(new Novel("ºü»ß¿ë", "2007-07-01", 396, 9800, "º£¸£³ª¸£º£¸£º£¸£", "Çö´ë¼Ò¼³"));
+        cart.addItem(new Novel("³²ÇÑ»ê¼º", "2007-04-14", 383, 11000, "±èÈÆ", "´ëÇÏ¼Ò¼³"));
+        cart.addItem(new ReferenceBook("½Ç¿ëÁÖÀÇÇÁ·Î±×·¡¸Ó", "2007-01-14", 496, 25000, "¼ÒÇÁÆ®¿ş¾î°øÇĞ"));
         
-        // ì¥ë°”êµ¬ë‹ˆ ë‚´ìš© ì¶œë ¥
+        // Àå¹Ù±¸´Ï ³»¿ë Ãâ·Â
         cart.displayCart();
         
-        // í†µê³„ ì¶œë ¥
+        // Åë°è Ãâ·Â
         cart.printStatistics();
         
-        // í•­ëª© ì œê±°
-        cart.removeItem("ë¹ ì‚ìš©");
+        // Ç×¸ñ Á¦°Å
+        cart.removeItem("ºü»ß¿ë");
         
-        // ì¥ë°”êµ¬ë‹ˆ ë‚´ìš© ë‹¤ì‹œ ì¶œë ¥
+        // Àå¹Ù±¸´Ï ³»¿ë ´Ù½Ã Ãâ·Â
         cart.displayCart();
     }
 }

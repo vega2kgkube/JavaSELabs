@@ -3,11 +3,11 @@ package mylab.book.entity;
 public class ReferenceBook extends Publication {
     private String field;
     
-    // ê¸°ë³¸ ìƒì„±ì
+    // ±âº» »ı¼ºÀÚ
     public ReferenceBook() {
     }
     
-    // ëª¨ë“  ë©¤ë²„ë³€ìˆ˜ë¥¼ ì¸ìë¡œ ê°–ëŠ” ìƒì„±ì
+    // ¸ğµç ¸â¹öº¯¼ö¸¦ ÀÎÀÚ·Î °®´Â »ı¼ºÀÚ
     public ReferenceBook(String title, String publishDate, int page, int price, String field) {
         super(title, publishDate, page, price);
         this.field = field;
@@ -22,10 +22,10 @@ public class ReferenceBook extends Publication {
         this.field = field;
     }
     
-    // toString ë©”ì„œë“œ ì˜¤ë²„ë¼ì´ë“œ
+    // toString ¸Ş¼­µå ¿À¹ö¶óÀÌµå
     @Override
     public String toString() {
-        return super.toString() + " [ì°¸ê³ ì„œ] ë¶„ì•¼:" + field + 
-               ", " + getPage() + "ìª½, " + getPrice() + "ì›, ì¶œíŒì¼:" + getPublishDate();
+        return super.toString() + " [Âü°í¼­] ºĞ¾ß:" + field + 
+               ", " + getPage() + "ÂÊ, " + getPrice() + "¿ø, ÃâÆÇÀÏ:" + getPublishDate();
     }
 }

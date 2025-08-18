@@ -11,7 +11,7 @@ import mylab.book.entity.ReferenceBook;
 
 public class StatisticsAnalyzer {
     
-    // íƒ€ì…ë³„ í‰ê·  ê°€ê²©ì„ ê³„ì‚°í•˜ëŠ” ë©”ì„œë“œ
+    // Å¸ÀÔº° Æò±Õ °¡°İÀ» °è»êÇÏ´Â ¸Ş¼­µå
     public Map<String, Double> calculateAveragePriceByType(Publication[] publications) {
         Map<String, Double> totalPriceByType = new HashMap<>();
         Map<String, Integer> countByType = new HashMap<>();
@@ -19,12 +19,12 @@ public class StatisticsAnalyzer {
         for (Publication pub : publications) {
             String type = getPublicationType(pub);
             
-            // í˜„ì¬ íƒ€ì…ì˜ ì´ ê°€ê²©ê³¼ ê°œìˆ˜ ì—…ë°ì´íŠ¸
+            // ÇöÀç Å¸ÀÔÀÇ ÃÑ °¡°İ°ú °³¼ö ¾÷µ¥ÀÌÆ®
             totalPriceByType.put(type, totalPriceByType.getOrDefault(type, 0.0) + pub.getPrice());
             countByType.put(type, countByType.getOrDefault(type, 0) + 1);
         }
         
-        // í‰ê·  ê³„ì‚°
+        // Æò±Õ °è»ê
         Map<String, Double> averagePriceByType = new HashMap<>();
         for (String type : totalPriceByType.keySet()) {
             double average = totalPriceByType.get(type) / countByType.get(type);
@@ -34,7 +34,7 @@ public class StatisticsAnalyzer {
         return averagePriceByType;
     }
     
-    // ì¶œíŒë¬¼ ìœ í˜• ë¶„í¬ë¥¼ ê³„ì‚°í•˜ëŠ” ë©”ì„œë“œ (%)
+    // ÃâÆÇ¹° À¯Çü ºĞÆ÷¸¦ °è»êÇÏ´Â ¸Ş¼­µå (%)
     public Map<String, Double> calculatePublicationDistribution(Publication[] publications) {
         Map<String, Integer> countByType = new HashMap<>();
         int totalCount = publications.length;
@@ -44,7 +44,7 @@ public class StatisticsAnalyzer {
             countByType.put(type, countByType.getOrDefault(type, 0) + 1);
         }
         
-        // ë°±ë¶„ìœ¨ ê³„ì‚°
+        // ¹éºĞÀ² °è»ê
         Map<String, Double> distributionByType = new HashMap<>();
         for (String type : countByType.keySet()) {
             double percentage = (countByType.get(type) * 100.0) / totalCount;
@@ -54,13 +54,13 @@ public class StatisticsAnalyzer {
         return distributionByType;
     }
     
-    // íŠ¹ì • ì—°ë„ì— ì¶œíŒëœ ì¶œíŒë¬¼ ë¹„ìœ¨ì„ ê³„ì‚°í•˜ëŠ” ë©”ì„œë“œ
+    // Æ¯Á¤ ¿¬µµ¿¡ ÃâÆÇµÈ ÃâÆÇ¹° ºñÀ²À» °è»êÇÏ´Â ¸Ş¼­µå
     public double calculatePublicationRatioByYear(Publication[] publications, String year) {
         int countInYear = 0;
         int totalCount = publications.length;
         
         for (Publication pub : publications) {
-            // publishDate í˜•ì‹ì´ "yyyy-mm-dd"ë¼ê³  ê°€ì •
+            // publishDate Çü½ÄÀÌ "yyyy-mm-dd"¶ó°í °¡Á¤
             String pubYear = pub.getPublishDate().substring(0, 4);
             if (pubYear.equals(year)) {
                 countInYear++;
@@ -70,41 +70,41 @@ public class StatisticsAnalyzer {
         return (countInYear * 100.0) / totalCount;
     }
     
-    // ì¶œíŒë¬¼ì˜ íƒ€ì…ì„ ë¬¸ìì—´ë¡œ ë°˜í™˜í•˜ëŠ” í—¬í¼ ë©”ì„œë“œ
+    // ÃâÆÇ¹°ÀÇ Å¸ÀÔÀ» ¹®ÀÚ¿­·Î ¹İÈ¯ÇÏ´Â ÇïÆÛ ¸Ş¼­µå
     private String getPublicationType(Publication pub) {
         if (pub instanceof Novel) {
-            return "ì†Œì„¤";
+            return "¼Ò¼³";
         } else if (pub instanceof Magazine) {
-            return "ì¡ì§€";
+            return "ÀâÁö";
         } else if (pub instanceof ReferenceBook) {
-            return "ì°¸ê³ ì„œ";
+            return "Âü°í¼­";
         } else {
-            return "ê¸°íƒ€";
+            return "±âÅ¸";
         }
     }
     
-    // ëª¨ë“  í†µê³„ ì •ë³´ë¥¼ ì¶œë ¥í•˜ëŠ” ë©”ì„œë“œ
+    // ¸ğµç Åë°è Á¤º¸¸¦ Ãâ·ÂÇÏ´Â ¸Ş¼­µå
     public void printStatistics(Publication[] publications) {
-        System.out.println("\n===== ì¶œíŒë¬¼ í†µê³„ ë¶„ì„ =====");
+        System.out.println("\n===== ÃâÆÇ¹° Åë°è ºĞ¼® =====");
         
-        // íƒ€ì…ë³„ í‰ê·  ê°€ê²©
+        // Å¸ÀÔº° Æò±Õ °¡°İ
         Map<String, Double> avgPriceByType = calculateAveragePriceByType(publications);
-        System.out.println("1. íƒ€ì…ë³„ í‰ê·  ê°€ê²©:");
+        System.out.println("1. Å¸ÀÔº° Æò±Õ °¡°İ:");
         DecimalFormat df = new DecimalFormat("#,###.##");
         for (String type : avgPriceByType.keySet()) {
-            System.out.println("   - " + type + ": " + df.format(avgPriceByType.get(type)) + "ì›");
+            System.out.println("   - " + type + ": " + df.format(avgPriceByType.get(type)) + "¿ø");
         }
         
-        // ì¶œíŒë¬¼ ìœ í˜• ë¶„í¬
+        // ÃâÆÇ¹° À¯Çü ºĞÆ÷
         Map<String, Double> distribution = calculatePublicationDistribution(publications);
-        System.out.println("\n2. ì¶œíŒë¬¼ ìœ í˜• ë¶„í¬:");
+        System.out.println("\n2. ÃâÆÇ¹° À¯Çü ºĞÆ÷:");
         for (String type : distribution.keySet()) {
             System.out.println("   - " + type + ": " + df.format(distribution.get(type)) + "%");
         }
         
-        // 2007ë…„ë„ì— ì¶œíŒëœ ì¶œíŒë¬¼ ë¹„ìœ¨
+        // 2007³âµµ¿¡ ÃâÆÇµÈ ÃâÆÇ¹° ºñÀ²
         double ratio2007 = calculatePublicationRatioByYear(publications, "2007");
-        System.out.println("\n3. 2007ë…„ì— ì¶œíŒëœ ì¶œíŒë¬¼ ë¹„ìœ¨: " + df.format(ratio2007) + "%");
+        System.out.println("\n3. 2007³â¿¡ ÃâÆÇµÈ ÃâÆÇ¹° ºñÀ²: " + df.format(ratio2007) + "%");
         
         System.out.println("=============================");
     }

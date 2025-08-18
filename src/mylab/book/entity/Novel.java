@@ -4,11 +4,11 @@ public class Novel extends Publication {
     private String author;
     private String genre;
     
-    // ê¸°ë³¸ ìƒì„±ì
+    // ±âº» »ı¼ºÀÚ
     public Novel() {
     }
     
-    // ëª¨ë“  ë©¤ë²„ë³€ìˆ˜ë¥¼ ì¸ìë¡œ ê°–ëŠ” ìƒì„±ì
+    // ¸ğµç ¸â¹öº¯¼ö¸¦ ÀÎÀÚ·Î °®´Â »ı¼ºÀÚ
     public Novel(String title, String publishDate, int page, int price, String author, String genre) {
         super(title, publishDate, page, price);
         this.author = author;
@@ -32,10 +32,10 @@ public class Novel extends Publication {
         this.genre = genre;
     }
     
-    // toString ë©”ì„œë“œ ì˜¤ë²„ë¼ì´ë“œ
+    // toString ¸Ş¼­µå ¿À¹ö¶óÀÌµå
     @Override
     public String toString() {
-        return super.toString() + " [ì†Œì„¤] ì €ì:" + author + ", ì¥ë¥´:" + genre + 
-               ", " + getPage() + "ìª½, " + getPrice() + "ì›, ì¶œíŒì¼:" + getPublishDate();
+        return super.toString() + " [¼Ò¼³] ÀúÀÚ:" + author + ", Àå¸£:" + genre + 
+               ", " + getPage() + "ÂÊ, " + getPrice() + "¿ø, ÃâÆÇÀÏ:" + getPublishDate();
     }
 }
